@@ -1,0 +1,9 @@
+SELECT Name, SUBSTRING_INDEX(GROUP_CONCAT(order_id, " - ", coast_order ORDER BY order_id DESC SEPARATOR ", "), "," ,2) as Result, 
+sum(coast_order) as TotalSum 
+FROM (SELECT order_customer.customer_name as Name,
+order_line.order_id, order_line.quantity, 
+sum(product.price * order_line.quantity) as coast_order
+FROM order_line INNER JOIN order_customer ON order_line.order_id=order_customer.id 
+INNER JOIN product on order_line.product_id=product.id
+GROUP BY order_line.order_id) order_line
+GROUP BY name ORDER BY TotalSum DESC;
