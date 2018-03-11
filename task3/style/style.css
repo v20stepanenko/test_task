@@ -1,0 +1,23 @@
+.products-block{
+    max-width: 950px;
+    margin: 0 auto;
+    
+}
+.products-block .product{
+    display: inline-block;
+    width: 50px;
+    height: 80px;
+    cursor: pointer;
+    border: 2px solid green;
+}
+
+.products-block .product_name{
+    text-align: center;
+    margin: 5px 0 5px 0;
+}
+.cart{
+    position: absolute
+}
+footer{
+    text-align: center
+}
